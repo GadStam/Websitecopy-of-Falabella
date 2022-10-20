@@ -5,7 +5,7 @@ const Nav = () => {
   const sayHi = ["pepe", "marta", "carlos", "miriam"]
 
   return (
-    <div style={{position: "fixed", width: "100%"}}>
+    <div style={{position: "fixed-top", width: "100%"}}>
       
       <ul>
         <li> <img src={Logo} width="100" height="100"></img></li>

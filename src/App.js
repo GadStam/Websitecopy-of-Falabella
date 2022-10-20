@@ -15,7 +15,6 @@ function App() {
             <Route index path="/" element={<Inicio />}/>
             <Route path="/qnessomos" element={<QuienesSomos />}/>
             <Route path="/productos" element={<Productos />}/>
-            
           </Route>
         </Routes>
       </BrowserRouter>

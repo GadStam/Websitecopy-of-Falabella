@@ -10,7 +10,7 @@ const Nav = () => {
       <ul>
         <li> <img src={Logo} width="100" height="100"></img></li>
         <li><Link to='/' >Inicio</Link></li>
-        <li><Link to='/products' >Products</Link></li>
+        <li><Link to='/productos' >productos</Link></li>
         <li><Link to='/qnessomos' >QUIENES SOMOS</Link></li>
        
       </ul>

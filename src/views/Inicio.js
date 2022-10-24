@@ -24,7 +24,7 @@ function Inicio() {
         <Carousel>
       <Carousel.Item>
         <img
-        style={{height:300}}
+        style={{height:350}}
           className="d-block w-100"
           src={fondo1}
           alt="First slide"
@@ -36,7 +36,7 @@ function Inicio() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-        style={{height:300}}
+        style={{height:350}}
           className="d-block w-100"
           src={fondo2}
           alt="Second slide"
@@ -49,7 +49,7 @@ function Inicio() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-        style={{height:300}}
+        style={{height:350}}
           className="d-block w-100"
           src={fondo3}
           alt="Third slide"

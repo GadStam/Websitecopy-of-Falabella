@@ -68,9 +68,10 @@ function Inicio() {
             {
                 productosDestacados.map((product) => (
 
-                    <div className="col-md-4">
+                    <div className="col-md-4" key={product.id}>
                         <Carta
-                            key={product.id}
+                            
+                            id= {product.id}
                             title={product.title}
                             description={product.description}
                             img={product.thumbnail}

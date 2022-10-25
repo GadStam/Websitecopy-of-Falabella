@@ -11,8 +11,9 @@ function Producto() {
   const [todosProductos, setProductos] = useState([])
 
     async function traerProductos() {
-        const productosAPI = await getAllproduct ()
-        setProductos(productosAPI)
+        const productosAPI = await getAllproduct()
+        console.log(productosAPI);
+        setProductos(productosAPI.products)
     }
 
     useEffect((e) => {
@@ -27,12 +28,13 @@ function Producto() {
         <div className="container">
         <div className="row">
 
-            {
+        {
                 todosProductos.map((product) => (
 
-                    <div className="col-md-4">
+                    <div className="col-md-4" key={product.id}>
                         <Carta
-                            key={product.id}
+                            
+                            id= {product.id}
                             title={product.title}
                             description={product.description}
                             img={product.thumbnail}

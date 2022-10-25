@@ -36,7 +36,7 @@ function Detalle() {
 
     return (
         <Card style={{marginTop: '2rem', borderColor: '#ABD600'}}>
-      <Card.Img variant="top" src={detalle.thumbnail} style={{ height: 200}}/>
+      <Card.Img variant="top" src={detalle.thumbnail} style={{ height: 500}}/>
       <Card.Body  style={{borderColor: 'red'}}>
         <Card.Title>{detalle.title}</Card.Title>
         <Card.Text>

@@ -3,7 +3,7 @@ import './Footer.css'
 const Footer = () => {
     return (
         <div className="footer">
-            Muestro el Footer
+            Eitan y Gad
         </div>
     )
 }

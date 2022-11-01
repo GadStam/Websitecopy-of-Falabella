@@ -6,7 +6,8 @@ import Layout from './components/Layout';
 import Detalle from './components/Detalle'
 import Inicio from './views/Inicio';
 import Error from './views/Error'
-
+import QnSomos from './views/QnSomos'
+import Contacto from './views/Contacto'
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,8 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index path="/" element={<Inicio />}/>
             <Route path="/productos" element={<Productos />}/>
+            <Route path="/QnSomos" element={<QnSomos />}/>
+            <Route path="/Contacto" element={<Contacto />}/>
             <Route path="/Detalle" >
               <Route path=':id' element={<Detalle />}></Route>
             </Route>

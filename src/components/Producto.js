@@ -6,35 +6,16 @@ import fondo3 from '../img/deposit.jpg'
 import Button from 'react-bootstrap/Button';
 import { getAllproduct  } from "../axios/endPoints";
 import Carta from "../components/carta";
-import {ActionTypes, useContextState} from '../contextState'
+
 import Carousel from 'react-bootstrap/Carousel';
 function Producto() {
 
   const [todosProductos, setProductos] = useState([])
-  const {contextState, setContextState} = useContextState()
     async function traerProductos() {
         const productosAPI = await getAllproduct()
         console.log(productosAPI);
         setProductos(productosAPI.products)
     }
-
-
-    const agregarMenu = (vegano, precioPlato, healthScorePlato) => {
-        setContextState({
-            type: ActionTypes.setCarrito,
-            value:{
-               
-                
-                listaPlatos:[...contextState.carrito.listaProductos, todosProductos]
-            }
-        })
-    }
-
-
-
-
-
-
 
     useEffect((e) => {
         traerProductos()

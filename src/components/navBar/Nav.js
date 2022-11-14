@@ -13,7 +13,7 @@ const Nav = () => {
         <li><Link to='/productos' >productos</Link></li>
         <li><Link to='/Contacto' >Contacto</Link></li>
         <li><Link to='/QnSomos' >Quienes Somosk</Link></li>
-       
+        <li><Link to='/Carrito' >Carrito</Link></li>
       </ul>
     </div>
   );

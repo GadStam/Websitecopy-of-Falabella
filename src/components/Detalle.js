@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import {getProductById} from '../axios/endPoints'
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { CarritoContext } from '../contextState';
 import '../App.css';
+import {Link} from 'react-router-dom'
+import { Button } from 'react-bootstrap';
+
 
 
 function Detalle() {
@@ -13,6 +17,9 @@ function Detalle() {
 
     const [detalle, setDetalle] = useState({});
 
+    const {carrito} = React.useContext(CarritoContext);
+    const {setCarrito} = React.useContext(CarritoContext);
+    const [agregados, setAgregados] = useState(carrito);
 
     const getDetalleProducto = async (e) => {
         await getProductById(id).then((response) => {
@@ -32,7 +39,31 @@ function Detalle() {
             
         }, [id]);
 
-    
+        const eliminar = () => {
+          let nuevoCarrito = carrito
+          if (nuevoCarrito[detalle.id].cantidad === 1) {
+              delete nuevoCarrito[detalle.id]
+          } else {
+              nuevoCarrito[detalle.id].cantidad = carrito[detalle.id].cantidad - 1
+          }
+          setCarrito(nuevoCarrito)
+      }        
+        
+        const agregar = () =>{
+          let nuevoCarrito = carrito
+          if(nuevoCarrito[detalle.id]){
+              nuevoCarrito[detalle.id] = {producto: detalle, cantidad: (nuevoCarrito[detalle.id].cantidad + 1)}
+          }else{
+              nuevoCarrito[detalle.id] = {producto: detalle, cantidad: 1}
+          }
+          setCarrito(nuevoCarrito)
+          console.log("carrito", carrito)
+      }
+
+    useEffect(() => {
+      console.log("carrito effect", carrito)
+      console.log(carrito)
+    }, [carrito])
 
     return (
         <Card style={{marginTop: '2rem', borderColor: '#ABD600'}}>
@@ -50,7 +81,17 @@ function Detalle() {
   <ListGroup.Item> Stock: {detalle.stock}</ListGroup.Item>
   <ListGroup.Item>Marca: {detalle.brand}</ListGroup.Item>
   
-
+{
+  carrito[detalle.id]
+                            ?
+                            <>
+                            <ListGroup.Item style={{textAlign: "center"}}><b>Este producto ya está en el carrito</b></ListGroup.Item>
+                          
+                            <Button type="button" onClick={eliminar}>Eliminar</Button>
+                            </>
+                            :
+                            <Button type="button" onClick={agregar} >Agregar al carrito</Button>
+                    }
 
 </ListGroup>
     </Card>

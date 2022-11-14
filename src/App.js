@@ -8,9 +8,12 @@ import Inicio from './views/Inicio';
 import Error from './views/Error'
 import QnSomos from './views/QnSomos'
 import Contacto from './views/Contacto'
+import Carrito from './views/Carrito'
+import CarritoProvider from "./contextState"
 function App() {
   return (
     <div className="App">
+            <CarritoProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -22,9 +25,12 @@ function App() {
               <Route path=':id' element={<Detalle />}></Route>
             </Route>
             <Route path="/*" element={<Error />}></Route>
+            <Route path="/Carrito" element={<Carrito />}></Route>
           </Route>
+          
         </Routes>
       </BrowserRouter>
+      </CarritoProvider>
     </div>
   );
 }

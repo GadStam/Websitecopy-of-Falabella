@@ -13,7 +13,7 @@ function Producto() {
   const [todosProductos, setProductos] = useState([])
     async function traerProductos() {
         const productosAPI = await getAllproduct()
-        console.log(productosAPI);
+        
         setProductos(productosAPI.products)
     }
 

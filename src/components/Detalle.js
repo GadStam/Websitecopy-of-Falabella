@@ -17,9 +17,7 @@ function Detalle() {
 
     const [detalle, setDetalle] = useState({});
 
-    const {carrito} = React.useContext(CarritoContext);
-    const {setCarrito} = React.useContext(CarritoContext);
-    const [agregados, setAgregados] = useState(carrito);
+    const {carrito, setCarrito} = React.useContext(CarritoContext);
 
     const getDetalleProducto = async (e) => {
         await getProductById(id).then((response) => {
@@ -37,33 +35,24 @@ function Detalle() {
         await getDetalleProducto()
         })()
             
-        }, [id]);
+        }, []);
 
         const eliminar = () => {
           let nuevoCarrito = carrito
-          if (nuevoCarrito[detalle.id].cantidad === 1) {
-              delete nuevoCarrito[detalle.id]
-          } else {
-              nuevoCarrito[detalle.id].cantidad = carrito[detalle.id].cantidad - 1
-          }
-          setCarrito(nuevoCarrito)
+          let index = nuevoCarrito.filter(prod => prod.producto.id !== detalle.id)
+          setCarrito(index)
+          
       }        
         
         const agregar = () =>{
           let nuevoCarrito = carrito
-          if(nuevoCarrito[detalle.id]){
-              nuevoCarrito[detalle.id] = {producto: detalle, cantidad: (nuevoCarrito[detalle.id].cantidad + 1)}
-          }else{
-              nuevoCarrito[detalle.id] = {producto: detalle, cantidad: 1}
-          }
+          nuevoCarrito = [...nuevoCarrito, {producto: detalle}];
           setCarrito(nuevoCarrito)
-          console.log("carrito", carrito)
       }
 
-    useEffect(() => {
-      console.log("carrito effect", carrito)
-      console.log(carrito)
-    }, [carrito])
+      useEffect(() => {
+        console.log(carrito)
+      }, [carrito])
 
     return (
         <Card style={{marginTop: '2rem', borderColor: '#ABD600'}}>
@@ -82,7 +71,7 @@ function Detalle() {
   <ListGroup.Item>Marca: {detalle.brand}</ListGroup.Item>
   
 {
-  carrito[detalle.id]
+  carrito.find((prod) => prod.producto.id === detalle.id)
                             ?
                             <>
                             <ListGroup.Item style={{textAlign: "center"}}><b>Este producto ya está en el carrito</b></ListGroup.Item>

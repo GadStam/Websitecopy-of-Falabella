@@ -13,7 +13,7 @@ import CarritoProvider from "./contextState"
 function App() {
   return (
     <div className="App">
-            <CarritoProvider>
+    <CarritoProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>

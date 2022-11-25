@@ -1,6 +1,9 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {Link} from 'react-router-dom'
+import {ProductosType} from '../components/PropT'
+import { PropTypes } from 'prop-types';
+
 function Carta(props) {
   return (
     <Card style={{marginTop: '2rem', borderColor: '#ABD600'}}>
@@ -17,6 +20,9 @@ function Carta(props) {
       </Card.Body>
     </Card>
   );
+}
+Carta.propTypes = {
+  props: ProductosType.isRequired
 }
 
 export default Carta;

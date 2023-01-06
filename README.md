@@ -8,7 +8,7 @@ Welcome to the copy of Falabella Website project! This website allows users to b
 2. A web browser
 
 # Installation
-+ Clone the repository: git clone https://github.com/user/ecommerce-website.git
++ Clone the repository: git clone https://github.com/GadStam/tp7-efsi
 + Navigate to the project directory: cd ecommerce-website
 + Install the dependencies: npm install
 + Start the development server: npm start

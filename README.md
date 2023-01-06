@@ -1,7 +1,26 @@
-# Getting Started with Create React App
+E-Commerce Website
+Welcome to the E-Commerce Website project! This website allows users to browse and purchase products online.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Requirements
+Node.js version 12 or higher
+A web browser
+Installation
+Clone the repository: git clone https://github.com/user/ecommerce-website.git
+Navigate to the project directory: cd ecommerce-website
+Install the dependencies: npm install
+Start the development server: npm start
+Usage
+Open your web browser and navigate to http://localhost:3000
+Browse the available products and add them to your cart
+Check out using the provided payment form
+Support
+If you have any questions or encounter any issues, please open an issue on the project repository or contact the maintainers directly.
 
+Credits
+React
+Express
+License
+This project is licensed under the MIT License. See LICENSE for details.
 ## Available Scripts
 
 In the project directory, you can run:
